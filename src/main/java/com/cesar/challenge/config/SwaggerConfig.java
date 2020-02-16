@@ -17,12 +17,14 @@ import java.util.ArrayList;
 @EnableSwagger2
 public class SwaggerConfig {
 
+    //http://localhost:8080/swagger-ui.html#/
+
     @Bean
     public Docket productApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.cesar.challenge"))
-//                .paths(PathSelectors.regex("/api/beers.*"))
+//                .paths(PathSelectors.regex("/api/despesas.*"))
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(metaInfo());
@@ -31,7 +33,7 @@ public class SwaggerConfig {
     private ApiInfo metaInfo() {
         ApiInfo apiInfo = new ApiInfo(
                 "challenge API REST",
-                "API REST in the challenge",
+                "API REST de despesas",
                 "1.0",
                 "Terms of Service",
                 new Contact("Evandro Nascimento", "https://github.com/efraibo/", "efraibo@gmail.com"),
