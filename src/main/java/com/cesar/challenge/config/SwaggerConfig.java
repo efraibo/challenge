@@ -36,7 +36,7 @@ public class SwaggerConfig {
                 "API REST de despesas",
                 "1.0",
                 "Terms of Service",
-                new Contact("Evandro Nascimento", "https://github.com/efraibo/", "efraibo@gmail.com"),
+                new Contact("Evandro Nascimento", "https://github.com/efraibo/challenge", "efraibo@gmail.com"),
                 "Apache License Version 2.0",
                 "https://www.apache.org/licese.html",
                 new ArrayList<VendorExtension>()
