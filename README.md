@@ -1,6 +1,6 @@
 # Challenge
 
-## Para executar o projeto localhost atravez do docker-composer siga os passos 
+## Para executar o projeto localhost através do docker-composer siga os passos 
 - mvn clean install
 - docker-compose build
 - docker images
