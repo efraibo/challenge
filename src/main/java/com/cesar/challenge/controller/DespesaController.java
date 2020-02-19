@@ -1,6 +1,11 @@
 package com.cesar.challenge.controller;
 
+import com.cesar.challenge.dao.view.categoria.DespesasPorCategoria;
+import com.cesar.challenge.dao.view.fonte.DespesasPorFonte;
+import com.cesar.challenge.dao.view.mes.DespesasPorMes;
+import com.cesar.challenge.services.DespesasService;
 import io.swagger.annotations.Api;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,20 +14,30 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/api/v1/despesas")
+@RequestMapping("/v1/despesas")
 @Api(value = "API REST Despesas")
 @CrossOrigin(origins = "*")
 public class DespesaController {
 
-    @GetMapping
-    public String getDespesasTotaisPorMes() {
-        return "Retorno do metodo getUser - HTTP GET";
+    @Autowired
+    private DespesasService despesasService;
+
+    @GetMapping(path = "/mes")
+    public List<DespesasPorMes> getDespesasTotaisPorMes() {
+        return despesasService.consultarDespesasPorMes();
     }
 
-    @PostMapping
-    public String createDespesa() {
-        return "Retorno do metodo createUser - HTTP POST";
+    @GetMapping(path = "/categoria")
+    public List<DespesasPorCategoria> getDespesasTotaisPorCategoria() {
+        return despesasService.consultarDespesasPorCategoria();
+    }
+
+    @GetMapping(path = "/fonte")
+    public List<DespesasPorFonte> getDespesasTotaisPorFonte() {
+        return despesasService.consultarDespesasPorFonte();
     }
 
     @PutMapping

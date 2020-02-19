@@ -8,10 +8,24 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Despesa {
 
-    @JsonProperty("_id")
-    private Integer id;
-
     @JsonProperty("ano_movimentacao")
     private Integer anoMovimentacao;
 
+    @JsonProperty("orgao_nome")
+    private String nomeOrgao;
+
+    @JsonProperty("valor_pago")
+    private String valorPago;
+
+    @JsonProperty("categoria_economica_codigo")
+    private Integer codigoCategoria;
+
+    @JsonProperty("categoria_economica_nome")
+    private String nomeCategoria;
+
+    @JsonProperty("fonte_recurso_codigo")
+    private String codigoRecurso;
+
+    @JsonProperty("fonte_recurso_nome")
+    private String fonteRecurso;
 }
