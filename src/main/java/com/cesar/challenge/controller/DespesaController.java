@@ -40,6 +40,11 @@ public class DespesaController {
         return despesasService.consultarDespesasPorFonte();
     }
 
+    @GetMapping
+    public String getDespesa() {
+        return "Retorno do metodo updateUser - HTTP GET";
+    }
+
     @PutMapping
     public String updateDespesa() {
         return "Retorno do metodo updateUser - HTTP PUT";

@@ -1,12 +1,30 @@
 version: '3'
 
 services:
+  db:
+    image: mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=challenge
+      - MYSQL_DATABASE=challenge
+      - MYSQL_USER=challenge
+      - MYSQL_PASSWORD=challenge
+      - MYSQL_ONETIME_PASSWORD=true
+    ports:
+      - 3307:3306
+
   spring-boot-rest-api-app:
     image: challenge-docker-image
     build:
       context: ./
       dockerfile: Dockerfile
     ports:
-      - 7070:8080
+      - 9080:8080
     volumes:
       - /data/challenge
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/challenge?useSSL=false&allowPublicKeyRetrieval=true
+      - SPRING_DATASOURCE_USERNAME=challenge
+      - SPRING_DATASOURCE_PASSWORD=challenge
+    depends_on:
+      - db
