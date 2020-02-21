@@ -7,8 +7,6 @@ import com.cesar.challenge.dao.view.fonte.DespesasPorFonte;
 import com.cesar.challenge.dao.view.fonte.IDespesasPorFonteView;
 import com.cesar.challenge.dao.view.mes.DespesasPorMes;
 import com.cesar.challenge.dao.view.mes.IDespesasPorMes;
-import com.cesar.challenge.model.ListaDespesas;
-import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -21,8 +19,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -44,16 +42,18 @@ public class DespesaRepositoryTest {
 
     @Test
     public void consultarDespesasApenasUmMes() {
+
+
         Long valorEsperado = repository.consultarDespesasApenasUmMes(1);
         Long valorAtual = 189958L;
-
+        assertNotNull(repository.consultarDespesasApenasUmMes(1));
         assertEquals(valorAtual, valorEsperado);
     }
 
     @Test
     public void consultarDespesasMesAMes() {
         List<IDespesasPorMes> iDespesasPorMes = repository.consultarDespesasMesAMes();
-
+        assertNotNull(repository.consultarDespesasMesAMes());
         List<DespesasPorMes> listaDepesasPorMesEsperada = iDespesasPorMes
                 .stream()
                 .map(despesaView -> new DespesasPorMes(despesaView.getMes_movimentacao(), despesaView.getTotal()))
@@ -68,7 +68,7 @@ public class DespesaRepositoryTest {
     @Test
     public void consultarDespesasAgrupadoPorCategoria() {
         List<IDespesasPorCategoria> iDespesasPorCategorias = repository.consultarDespesasAgrupadoPorCategoria();
-
+        assertNotNull(repository.consultarDespesasAgrupadoPorCategoria());
         List<DespesasPorCategoria> listaDepesasPorMesEsperado = iDespesasPorCategorias
                 .stream()
                 .map(despesaView -> new DespesasPorCategoria(despesaView.getCategoria_economica_nome(), despesaView.getTotal()))
@@ -81,7 +81,7 @@ public class DespesaRepositoryTest {
     @Test
     public void consultarDespesasAgrupadoPorFonte() {
         List<IDespesasPorFonteView> iDespesasPorCategorias = repository.consultarDespesasAgrupadoPorFonte();
-
+        assertNotNull(repository.consultarDespesasAgrupadoPorFonte());
         List<DespesasPorFonte> listaDepesasPorMesEsperado = iDespesasPorCategorias
                 .stream()
                 .map(despesaView -> new DespesasPorFonte(despesaView.getFonte_recurso_nome(), despesaView.getTotal()))
@@ -98,7 +98,7 @@ public class DespesaRepositoryTest {
                 DespesasPorMes.builder().mes_movimento(1).total(189958.01).build(),
                 DespesasPorMes.builder().mes_movimento(2).total(909544.6799999999).build(),
                 DespesasPorMes.builder().mes_movimento(3).total(134110.19999999998).build(),
-                DespesasPorMes.builder().mes_movimento(4).total(100603.17000000001).build()  ,
+                DespesasPorMes.builder().mes_movimento(4).total(100603.17000000001).build(),
                 DespesasPorMes.builder().mes_movimento(5).total(177984.94999999998).build(),
                 DespesasPorMes.builder().mes_movimento(6).total(112281.23999999999).build(),
                 DespesasPorMes.builder().mes_movimento(7).total(155754.14).build(),
