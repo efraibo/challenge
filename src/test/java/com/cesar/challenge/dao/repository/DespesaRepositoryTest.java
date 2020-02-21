@@ -1,5 +1,6 @@
 package com.cesar.challenge.dao.repository;
 
+import com.cesar.challenge.config.ConsomeApi;
 import com.cesar.challenge.dao.model.Despesa;
 import com.cesar.challenge.dao.view.categoria.DespesasPorCategoria;
 import com.cesar.challenge.dao.view.categoria.IDespesasPorCategoria;
@@ -13,6 +14,7 @@ import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Arrays;
@@ -22,6 +24,7 @@ import java.util.stream.Collectors;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+@Import(ConsomeApi.class)
 @RunWith(SpringRunner.class)
 @DataJpaTest
 public class DespesaRepositoryTest {
