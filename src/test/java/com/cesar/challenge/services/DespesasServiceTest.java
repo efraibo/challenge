@@ -36,9 +36,14 @@ public class DespesasServiceTest {
         DespesasPorMesFactory despesasPorMesFactory = new DespesasPorMesFactory(iDespesasPorMes);
 
         //procurar como mocar um construtor
-        Mockito.mock(DespesasPorMesFactory.class);
+        DespesasPorMesFactory mock = Mockito.mock(DespesasPorMesFactory.class);
+
         when(despesaRepository.consultarDespesasMesAMes()).thenReturn(iDespesasPorMes);
-        when(new DespesasPorMesFactory(iDespesasPorMes)).thenReturn(despesasPorMesFactory);
+
+
+        when(mock).thenReturn(despesasPorMesFactory);
+
+       // when(mock).thenReturn(despesasPorMesFactory);
 
         verify(despesasPorMesFactory.toListDespesasPorMes(), times(1));
 
