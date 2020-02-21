@@ -19,7 +19,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.util.List;
 
 @Configuration
-public class ConsomeApi {
+public class CarregarDadosDespesas {
 
     @Autowired
     private DespesaRepository despesaRepository;

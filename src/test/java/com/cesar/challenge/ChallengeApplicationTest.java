@@ -23,7 +23,7 @@ import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
-@Ignore
+
 @EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -52,6 +52,7 @@ public class ChallengeApplicationTest {
             jsonObject.put("resource_id", "dc9744c1-ab3d-4597-b8ce-a01c9ee2fdda");
             jsonObject.put("limit", "100");
             jsonObject.put("offset", String.valueOf(offset));
+            jsonObject.put("filters", "[\"DESPESAS DE CAPITAL\"]");
 
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
