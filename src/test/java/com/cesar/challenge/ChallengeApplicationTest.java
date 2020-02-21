@@ -6,6 +6,7 @@ import com.cesar.challenge.model.DespesaResponse;
 import com.cesar.challenge.model.ListaDespesas;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
-
+@Ignore
 @EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -30,24 +31,6 @@ public class ChallengeApplicationTest {
 
     @Autowired
     private DespesaRepository despesaRepository;
-
-    @Test
-    public void consumerAPI() {
-        //"https://api.trello.com/1/boards/5612e4f91b25c15e873722b8?fields=all";
-        RestTemplate template = new RestTemplate();
-        UriComponents uri = UriComponentsBuilder.newInstance()
-                .scheme("https")
-                .host("api.trello.com")
-                .path("1/boards/5612e4f91b25c15e873722b8")
-                .queryParam("fields", "all")
-                .build();
-
-
-        ResponseEntity<Trello> entity = template.getForEntity(uri.toUriString(), Trello.class);
-
-        System.out.println(entity.getBody().getName());
-
-    }
 
     @Test
     public void consumerApiPrefeituraRecife() throws JSONException {
