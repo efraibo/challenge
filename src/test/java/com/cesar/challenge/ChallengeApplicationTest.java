@@ -9,6 +9,8 @@ import org.json.JSONObject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -21,6 +23,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
 
+@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ChallengeApplicationTest {
