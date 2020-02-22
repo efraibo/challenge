@@ -21,13 +21,20 @@ public class DespesasService {
     @Autowired
     private DespesaRepository despesaRepository;
 
+    @Autowired
+    private DespesasPorMesFactory despesasPorMesFactory;
+
+    @Autowired
+    private DespesasPorFonteFactory despesasPorFonteFactory;
+
+    @Autowired
+    private DespesasPorCategoriaFactory despesasPorCategoriaFactory;
+
     public List<DespesasPorFonte> consultarDespesasPorFonte() {
 
         List<IDespesasPorFonteView> iDespesasPorFonteViews = despesaRepository.consultarDespesasAgrupadoPorFonte();
 
-        DespesasPorFonteFactory despesasPorFonteFactory = new DespesasPorFonteFactory(iDespesasPorFonteViews);
-
-        return despesasPorFonteFactory.toListfontePorMes();
+        return despesasPorFonteFactory.toListfontePorMes(iDespesasPorFonteViews);
     }
 
 
@@ -35,17 +42,13 @@ public class DespesasService {
 
         List<IDespesasPorCategoria> iDespesasPorCategorias = despesaRepository.consultarDespesasAgrupadoPorCategoria();
 
-        DespesasPorCategoriaFactory despesasPorCategoriaFactory = new DespesasPorCategoriaFactory(iDespesasPorCategorias);
-
-        return despesasPorCategoriaFactory.toListCategoriaPorMes();
+        return despesasPorCategoriaFactory.toListCategoriaPorMes(iDespesasPorCategorias);
     }
 
     public List<DespesasPorMes> consultarDespesasPorMes() {
 
         List<IDespesasPorMes> iDespesasPorMes = despesaRepository.consultarDespesasMesAMes();
 
-        DespesasPorMesFactory despesasPorMesFactory = new DespesasPorMesFactory(iDespesasPorMes);
-
-        return despesasPorMesFactory.toListDespesasPorMes();
+        return despesasPorMesFactory.toListDespesasPorMes(iDespesasPorMes);
     }
 }
