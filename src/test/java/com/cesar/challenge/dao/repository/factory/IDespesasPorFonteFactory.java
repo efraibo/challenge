@@ -10,7 +10,7 @@ public class IDespesasPorFonteFactory {
 
     public List<IDespesasPorFonteView> getDespesasPorFonteEsperado() {
 
-        IDespesasPorFonteImpl iDespesasPorFonte = IDespesasPorFonteImpl.builder().fonteRecursoNome("RECURSOS ORDINÁRIOS - NÃO VINCULADOS").total(189958.01).build();
+        IDespesasPorFonteImpl iDespesasPorFonte = IDespesasPorFonteImpl.builder().fonteRecursoNome("RECURSOS ORDINÁRIOS - NÃO VINCULADOS").total(189958.01d).build();
 
         return Arrays.asList(iDespesasPorFonte);
     }

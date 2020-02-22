@@ -74,7 +74,7 @@ public class DespesasServiceTest {
 
         when(despesaRepository.consultarDespesasAgrupadoPorCategoria()).thenReturn(iDespesasPorCategorias);
 
-        despesasService.consultarDespesasPorFonte();
+        despesasService.consultarDespesasPorCategoria();
 
         verify(despesasPorCategoriaFactory, times(1)).toListCategoriaPorMes(iDespesasPorCategorias);
     }

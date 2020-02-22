@@ -10,9 +10,9 @@ public class IDespesasPorCategoriaFactory {
 
     public List<IDespesasPorCategoria> getDespesasPorCategoriaEsperado() {
 
-        IDespesasPorCategoriaImpl despesaCategoria = IDespesasPorCategoriaImpl.builder().categoriaEconomicaNome("DESPESAS CORRENTES").total(189958.01d).build();
+        IDespesasPorCategoriaImpl iDespesasPorCategoria = IDespesasPorCategoriaImpl.builder().categoriaEconomicaNome("DESPESAS CORRENTES").total(189958.01d).build();
 
-        return Arrays.asList(despesaCategoria);
+        return Arrays.asList(iDespesasPorCategoria);
     }
 
 }
