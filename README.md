@@ -28,6 +28,6 @@
 # Observações Gerais
 - A aplicação foi publicada na cloud pivotal conforme solicitado;
 - Foi criado um serviço de banco de dados postgres para ser utilizado na aplicação;
-- Foi levando em consideração o ano 2019 para consumir a api os dados foram adicionados previamente no momento que a aplicação sobe pela primeira vez deixando o retorno dos dados mais rápido e eficiente;
+- Foi levando em consideração o ano 2019 para consumir a api. Os dados foram adicionados previamente no momento que a aplicação sobe pela primeira vez. Deixando o retorno dos dados mais rápido e eficiente;
 
 
