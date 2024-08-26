@@ -19,7 +19,7 @@
         <org.mapstruct.version>1.2.0.Final</org.mapstruct.version>
         <org.apache.maven.plugins.version>3.6.0</org.apache.maven.plugins.version>
         <org.projectlombok.version>1.18.2</org.projectlombok.version>
-        <swagger-version>2.9.2</swagger-version>
+        <swagger-version>2.10.0</swagger-version>
     </properties>
 
     <dependencies>
